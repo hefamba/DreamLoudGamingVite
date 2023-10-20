@@ -2,24 +2,15 @@ import { Row, Col } from 'react-bootstrap';
 import StoreItem from '../../components/StoreItem';
 import storeItems from '../../data/items.json';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
-
-const container = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.2 },
-  },
-};
 
 const Shop = () => {
-  useEffect(() => {
-    function print() {
-      console.log(storeItems);
-    }
-    print();
-  });
   return (
     <>
+      <div
+        className="mt-3 text-white"
+        style={{ display: 'flex', justifyContent: 'center' }}>
+        <h2>Shop DreamLoud Apparel</h2>
+      </div>
       <motion.div className="mt-5">
         <Row md={2} xs={1} lg={3} xl={4} className="g-3">
           {storeItems.map((item) => (

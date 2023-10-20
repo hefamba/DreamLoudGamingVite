@@ -1,13 +1,10 @@
-import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../assets/dreaming_cloud.png';
 import { NavLink } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useShoppingCart } from '../../context/ShoppingCartContex';
 
-type Props = {};
-
-const Navigation = (props: Props) => {
+const Navigation = () => {
   const { openCart, cartQuantity } = useShoppingCart();
   return (
     <Navbar sticky="top" expand="md" bg="dark" style={{ width: '100vw' }}>

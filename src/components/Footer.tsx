@@ -4,17 +4,21 @@ import {
   FaTiktok,
   FaTwitch,
   FaTwitter,
+  FaHome,
+  FaPhone,
+  FaEnvelope,
 } from 'react-icons/fa';
+
+import xboxImage from '../../public/imgs/xbox.png';
+
 import scuff from '../../public/imgs/scuff.png';
-import nvidia from '../../public/imgs/nvidia.png';
-import pringles from '../../public/imgs/pringles.png';
 
 const partners = [
   {
-    partner: nvidia,
+    img: scuff,
   },
   {
-    partner: pringles,
+    img: xboxImage,
   },
 ];
 
@@ -40,12 +44,11 @@ const Footer = () => {
   return (
     <section
       style={{
-        height: '10%',
         border: 'black solid 2px',
         backgroundColor: 'black',
         display: 'flex',
         justifyContent: 'center',
-        paddingTop: '20px',
+        padding: '20px 0',
       }}>
       <div
         style={{
@@ -55,7 +58,7 @@ const Footer = () => {
           borderRadius: '25px',
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
           padding: '15px',
           color: 'whitesmoke',
         }}>
@@ -82,14 +85,42 @@ const Footer = () => {
             flexWrap: 'wrap',
           }}>
           <h2>Our Partners</h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-evenly',
+              width: '100%',
+            }}>
             {partners.map((p) => (
-              <img
-                src={p.partner}
-                alt="logoSponsor"
-                style={{ width: '4rem' }}
-              />
+              <img src={p.img} alt="logoSponsor" style={{ width: '4rem' }} />
             ))}
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexWrap: 'wrap',
+          }}>
+          <h2>Contact</h2>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              flexWrap: 'wrap',
+              justifyContent: 'space-evenly',
+              width: '100%',
+            }}>
+            <p>
+              <FaHome /> 15587 htown blvd, Houston, Tx
+            </p>
+            <p>
+              <FaEnvelope /> dreamloud@dreamloud.org
+            </p>
+            <p>
+              <FaPhone /> +01 555 584 1123
+            </p>
           </div>
         </div>
       </div>
