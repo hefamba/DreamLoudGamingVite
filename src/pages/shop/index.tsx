@@ -1,45 +1,40 @@
 import { Row, Col } from 'react-bootstrap';
 import StoreItem from '../../components/StoreItem';
+import storeItems from '../../data/items.json';
+import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
-export const storeItems = [
-  {
-    id: 1,
-    name: 'Book',
-    price: 10.99,
-    imgUrl: '/imgs/hoodie_blue.jpg',
+const container = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2 },
   },
-  {
-    id: 2,
-    name: 'Computer',
-    price: 1199,
-    imgUrl: '/imgs/hoodie_blue.jpg',
-  },
-  {
-    id: 3,
-    name: 'Banana',
-    price: 1.05,
-    imgUrl: '/imgs/hoodie_blue.jpg',
-  },
-  {
-    id: 4,
-    name: 'Car',
-    price: 14000,
-    imgUrl: '/imgs/hoodie_blue.jpg',
-  },
-];
-
-const Shop = () => {
-  return (
-    <div>
-      <Row md={2} xs={1} lg={3} xl={4} className="g-3">
-        {storeItems.map((item) => (
-          <Col>
-            <StoreItem {...item} />
-          </Col>
-        ))}
-      </Row>
-    </div>
-  );
 };
 
+const Shop = () => {
+  useEffect(() => {
+    function print() {
+      console.log(storeItems);
+    }
+    print();
+  });
+  return (
+    <>
+      <motion.div className="mt-5">
+        <Row md={2} xs={1} lg={3} xl={4} className="g-3">
+          {storeItems.map((item) => (
+            <Col key={item.id}>
+              <StoreItem
+                id={item.id}
+                price={item.price}
+                name={item.name}
+                imgUrl={item.imgUrl}
+              />
+            </Col>
+          ))}
+        </Row>
+      </motion.div>
+    </>
+  );
+};
 export default Shop;

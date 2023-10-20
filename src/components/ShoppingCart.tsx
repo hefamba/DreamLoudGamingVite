@@ -1,7 +1,7 @@
 import { useShoppingCart } from '../context/ShoppingCartContex';
-import { NavbarOffcanvas, Stack, Offcanvas } from 'react-bootstrap';
+import { NavbarOffcanvas, Stack, Offcanvas, Button } from 'react-bootstrap';
 import CartItem from './CartItem';
-import { storeItems } from '../pages/shop';
+import storeItems from '../data/items.json';
 import formatCurrency from '../utilities/formatCurrency';
 
 type Props = {
@@ -29,6 +29,7 @@ const ShoppingCart = ({ isOpen }: Props) => {
               }, 0)
             )}
           </div>
+          <Button>Proceed to Checkout</Button>
         </Stack>
       </Offcanvas.Body>
     </Offcanvas>

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Home from './pages/home';
 import About from './pages/about';
@@ -8,6 +8,7 @@ import Navigation from './components/navbar';
 import { ShoppingCartProvider } from './context/ShoppingCartContex';
 
 function App() {
+  const location = useLocation();
   return (
     <ShoppingCartProvider>
       <Navigation />
@@ -16,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop" key={location.key} element={<Shop />} />
         </Routes>
       </Container>
     </ShoppingCartProvider>

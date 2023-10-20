@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Hoodie Blue",
+    "price": 40.0,
+    "imgUrl": "/imgs/hoodie_blue.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Hoodie Red",
+    "price": 40.0,
+    "imgUrl": "/imgs/hoodie_red.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Hoodie Maroon",
+    "price": 40.0,
+    "imgUrl": "/imgs/hoodie_maroon.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Hoodie Grey",
+    "price": 40.0,
+    "imgUrl": "/imgs/hoodie_grey.jpg"
+  },
+  {
+    "id": 5,
+    "name": "T-Shirt Yellow",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_yellow.jpg"
+  },
+  {
+    "id": 6,
+    "name": "T-Shirt White ",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_white.jpg"
+  },
+  {
+    "id": 7,
+    "name": "T-Shirt Red",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_red.jpg"
+  },
+  {
+    "id": 8,
+    "name": "T-Shirt Purple",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_purple.jpg"
+  },
+  {
+    "id": 9,
+    "name": "T-Shirt Pink",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_pink.jpg"
+  },
+  {
+    "id": 10,
+    "name": "T-Shirt Green",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_green.jpg"
+  },
+  {
+    "id": 11,
+    "name": "T-Shirt Blue",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_blue.jpg"
+  },
+  {
+    "id": 12,
+    "name": "T-Shirt Smoke",
+    "price": 15.0,
+    "imgUrl": "/imgs/tee_darkGrey.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Hoodie Special White",
+    "price": 65.0,
+    "imgUrl": "/imgs/hoodie_pocketpurple.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Sweatpant",
+    "price": 37.0,
+    "imgUrl": "/imgs/sweatpants_pocketyellow.jpg"
+  }
+]
