@@ -10,11 +10,6 @@ type StoreItemsProps = {
   imgUrl: string;
 };
 
-const childVariant = {
-  hidden: { opacity: 0, scale: 0.89 },
-  visible: { opacity: 1, scale: 1 },
-};
-
 const StoreItem = ({ id, name, price, imgUrl }: StoreItemsProps) => {
   const {
     increaseItemQuantity,
@@ -33,8 +28,17 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemsProps) => {
         hidden: { opacity: 0, y: 50 },
         visible: { opacity: 1, y: 0 },
       }}>
-      <Card className="h-100">
-        <Card.Img variant="top" src={imgUrl} style={{ objectFit: 'cover' }} />
+      <Card
+        className="h-100"
+        style={{
+          border: 'black solid 3px',
+          boxShadow: '15px 15px 20px black',
+        }}>
+        <Card.Img
+          variant="top"
+          src={imgUrl}
+          style={{ objectFit: 'cover', borderBottom: 'black solid 3px' }}
+        />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{formatCurrency(price)}</Card.Text>
@@ -42,7 +46,8 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemsProps) => {
             {quantity === 0 ? (
               <Button
                 className="w-100"
-                onClick={() => increaseItemQuantity(id)}>
+                onClick={() => increaseItemQuantity(id)}
+                variant="info">
                 + Add to Cart
               </Button>
             ) : (
@@ -56,11 +61,19 @@ const StoreItem = ({ id, name, price, imgUrl }: StoreItemsProps) => {
                 <div
                   className="d-flex align-items-center justify-content-center "
                   style={{ gap: '.5rem' }}>
-                  <Button onClick={() => decreaseItemQuantity(id)}>-</Button>
+                  <Button
+                    onClick={() => decreaseItemQuantity(id)}
+                    variant="info">
+                    -
+                  </Button>
                   <div>
                     <span>{quantity}</span> in cart
                   </div>
-                  <Button onClick={() => increaseItemQuantity(id)}>+</Button>
+                  <Button
+                    onClick={() => increaseItemQuantity(id)}
+                    variant="info">
+                    +
+                  </Button>
                 </div>
                 <Button variant="danger" onClick={() => removeFromCart(id)}>
                   Remove from cart
