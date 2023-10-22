@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Home from './pages/home';
 import About from './pages/about';
@@ -7,8 +7,15 @@ import Shop from './pages/shop';
 import Navigation from './components/navbar';
 import { ShoppingCartProvider } from './context/ShoppingCartContex';
 import Footer from './components/Footer';
+import { useEffect } from 'react';
 
 function App() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="bg-dark" style={{ height: '100%' }}>
       <ShoppingCartProvider>
