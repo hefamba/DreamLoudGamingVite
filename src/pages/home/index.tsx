@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Button, Card, Col, Row, Modal } from 'react-bootstrap';
+import { Button, Row, Modal } from 'react-bootstrap';
 import bannerClip from '../../assets/overlayBanner.mp4';
 import shopPic from '../../../public/imgs/about_photo.jpg';
 import third from '../../../public/imgs/Third.jpg';
@@ -7,6 +7,7 @@ import killtac from '../../assets/killtac game clip.mp4';
 import overkill from '../../assets/overkill kth.mp4';
 import clip3 from '../../assets/Ha clip 3.mp4';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type VideoData = {
   id: number;
@@ -33,6 +34,13 @@ const videoData: VideoData[] = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const navigateToShop = () => {
+    // Use the history object to navigate to the shop page
+    navigate('/shop');
+  };
+
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
 
   const openVideoModal = (video: VideoData) => {
@@ -88,7 +96,7 @@ const Home = () => {
         </div>
       </section>
       <div
-        className="mt-5"
+        className="mt-3"
         style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
         <h1>Get Your Merch!</h1>
       </div>
@@ -119,7 +127,7 @@ const Home = () => {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-evenly',
-            padding: '15px',
+            padding: '5px',
             color: 'whitesmoke',
           }}>
           <motion.div
@@ -142,7 +150,7 @@ const Home = () => {
             <img
               src={shopPic}
               alt="shop pic"
-              style={{ width: '15rem', borderRadius: '20px' }}
+              style={{ width: '14rem', borderRadius: '20px' }}
             />
           </motion.div>
 
@@ -151,7 +159,6 @@ const Home = () => {
               display: 'flex',
               flexDirection: 'column',
               flexWrap: 'wrap',
-              alignItems: 'center',
               justifyContent: 'center',
             }}>
             <motion.div
@@ -169,7 +176,6 @@ const Home = () => {
                 flexWrap: 'wrap',
                 justifyContent: 'space-evenly',
                 alignItems: 'center',
-                width: '100%',
               }}>
               <p>
                 Show your DreamLoud Support by shopping at our merch <br />
@@ -182,6 +188,7 @@ const Home = () => {
                 style={{ width: '80%', borderRadius: '20px' }}
               />
               <Button
+                onClick={navigateToShop}
                 className="mt-2"
                 variant="outline-info"
                 style={{ width: '60%' }}>
@@ -191,55 +198,74 @@ const Home = () => {
           </div>
         </motion.div>
       </section>
+      <div
+        className="mt-3 text-white"
+        style={{ display: 'flex', justifyContent: 'center' }}>
+        <h2>Featured Highlights</h2>
+      </div>
       <section>
         <div
           style={{
             display: 'flex',
             justifyContent: 'center',
             flexWrap: 'wrap',
+            width: '100%',
+            padding: '10px',
           }}>
           <Row sm={1} md={3}>
             {videoData.map((video) => (
-              <Card key={video.id}>
-                <Col>
-                  <div onClick={() => openVideoModal(video)}>
-                    <video
-                      autoPlay
-                      src={video.vid}
-                      style={{ width: '100%', cursor: 'pointer' }}
-                    />
-                  </div>
-                  <Card.Body>
-                    <Card.Text>{video.name}</Card.Text>
-                  </Card.Body>
-                </Col>
-              </Card>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                variants={{
+                  hidden: { opacity: 0, x: -100 },
+                  visible: { opacity: 1, x: 0 },
+                }}>
+                <video
+                  onClick={() => openVideoModal(video)}
+                  src={video.vid}
+                  style={{
+                    width: '100%',
+                    cursor: 'pointer',
+                    border: 'solid black 3px',
+                    borderRadius: '20px',
+                    boxShadow: '10px 10px 30px black',
+                  }}
+                />
+                <h4
+                  className="text-white"
+                  style={{
+                    display: 'flex',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  {video.name}
+                </h4>
+              </motion.div>
             ))}
           </Row>
         </div>
-
-        <Modal show={selectedVideo !== null} onHide={closeVideoModal} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              {(selectedVideo as (typeof videoData)[0] | null)?.name}
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {selectedVideo && (
-              <video
-                src={selectedVideo.vid}
-                controls
-                style={{ width: '100%' }}
-              />
-            )}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={closeVideoModal}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </section>
+
+      <Modal show={selectedVideo !== null} onHide={closeVideoModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {(selectedVideo as (typeof videoData)[0] | null)?.name}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedVideo && (
+            <video src={selectedVideo.vid} controls style={{ width: '100%' }} />
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeVideoModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };
