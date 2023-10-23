@@ -3,7 +3,7 @@ import { Button, Row, Modal } from 'react-bootstrap';
 import bannerClip from '../../assets/overlayBanner.mp4';
 import shopPic from '../../../public/imgs/about_photo.jpg';
 import third from '../../../public/imgs/Third.jpg';
-import killtac from '../../assets/killtac game clip.mp4';
+import killtac from '../../assets/KillTac-edited.mp4';
 import overkill from '../../assets/overkill kth.mp4';
 import clip3 from '../../assets/Ha clip 3.mp4';
 import { useState } from 'react';
