@@ -89,7 +89,6 @@ const Home = () => {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              borderRadius: '20px',
               border: 'solid 5px black',
             }}
           />
@@ -108,7 +107,6 @@ const Home = () => {
           display: 'flex',
           justifyContent: 'center',
           padding: '20px 0',
-          borderRadius: '20px',
         }}>
         <motion.div
           initial="hidden"

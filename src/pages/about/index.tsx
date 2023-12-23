@@ -68,7 +68,6 @@ const About = () => {
         style={{
           backgroundColor: 'black',
           width: '100%',
-          borderRadius: '20px',
         }}>
         <div style={{ display: 'flex', padding: '30px', gap: '30px' }}>
           <motion.div
